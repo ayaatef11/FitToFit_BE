@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SharedKernal\SharedKernal.csproj" />
+    <ProjectReference Include="..\..\Clients\Modules.Clients.ApiContracts\Modules.Clients.ApiContracts.csproj" />
+    <ProjectReference Include="..\Modules.Doctors.ApiContracts\Modules.Doctors.ApiContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Doctor\Dtos\" />
+  </ItemGroup>
+
+</Project>

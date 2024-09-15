@@ -8,7 +8,7 @@ namespace Modules.Doctors.Data
 {
     internal sealed class DoctorsDbContext : DbContext
     {
-        public DbSet<DoctorEntity> Agents => Set<DoctorEntity>();
+        public DbSet<DoctorEntity> Doctors => Set<DoctorEntity>();
         public DoctorsDbContext(IUOF unitOfWork, IEnumerable<IInterceptor>? interceptors = default) : base(CreateOptions(unitOfWork, interceptors))
         {
             unitOfWork.RegisterContext(this);

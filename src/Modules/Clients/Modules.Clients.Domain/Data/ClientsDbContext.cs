@@ -8,7 +8,7 @@ namespace Modules.Clients.Data
 {
     internal sealed class ClientsDbContext : DbContext
     {
-        public DbSet<ClientEntity> Agents => Set<ClientEntity>();
+        public DbSet<ClientEntity> Clients => Set<ClientEntity>();
         public ClientsDbContext(IUOF unitOfWork, IEnumerable<IInterceptor>? interceptors = default) : base(CreateOptions(unitOfWork, interceptors))
         {
             unitOfWork.RegisterContext(this);

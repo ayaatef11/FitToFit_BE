@@ -15,9 +15,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharedKernal\SharedKernal.csproj" />
-    <ProjectReference Include="..\src\Modules\Clients\Modules.Clients.Domain\Modules.Clients.csproj" />
-    <ProjectReference Include="..\src\Modules\Doctors\Modules.Doctors.Domain\Modules.Doctors.csproj" />
-    <ProjectReference Include="..\src\Modules\Users\Modules.Identity\Modules.Identity.csproj" />
+    <ProjectReference Include="..\src\Modules\Clients\Modules.Clients\Modules.Clients.csproj" />
+    <ProjectReference Include="..\src\Modules\Doctors\Modules.Doctors\Modules.Doctors.csproj" />
+    <ProjectReference Include="..\src\Modules\Identity\Modules.Identity\Modules.Identity.csproj" />
   </ItemGroup>
 
 </Project>

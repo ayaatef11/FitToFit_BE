@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\ApisContracts\ApisContracts.csproj" />
     <ProjectReference Include="..\..\..\..\SharedKernal\SharedKernal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Client\Dtos\" />
   </ItemGroup>
 
 </Project>

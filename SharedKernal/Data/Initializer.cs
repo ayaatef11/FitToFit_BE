@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using SharedKernal.ModuleInstaller;
 
 namespace SharedKernal.Data
@@ -7,9 +8,12 @@ namespace SharedKernal.Data
     {
         public static async Task CheckDefaultData(this WebApplication app)
         {
-            foreach (var installer in ModularInstallerLoader.ModuleInstalelrs)
+            using (var scope = app.Services.CreateScope())
             {
-                await installer.GetDatabaseInitializer(app.Services).SeedAndCheckDefaultData();
+                foreach (var installer in ModularInstallerLoader.ModuleInstalelrs)
+                {
+                    await installer.GetDatabaseInitializer(scope.ServiceProvider).SeedAndCheckDefaultData();
+                }
             }
         }
     }

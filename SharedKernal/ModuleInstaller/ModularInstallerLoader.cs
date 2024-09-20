@@ -8,7 +8,7 @@ namespace SharedKernal.ModuleInstaller
     public static class ModularInstallerLoader
     {
         private static ICollection<IModuleInstaller> _modulesInstalelrs = null;
-        private static ICollection<IModuleInstaller> ModuleInstalelrs
+        public static ICollection<IModuleInstaller> ModuleInstalelrs
         {
             get
             {

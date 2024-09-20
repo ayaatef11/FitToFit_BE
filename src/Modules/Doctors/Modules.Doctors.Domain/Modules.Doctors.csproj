@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\SharedKernal\SharedKernal.csproj" />
-    <ProjectReference Include="..\..\Clients\Modules.Clients.ApiContracts\Modules.Clients.ApiContracts.csproj" />
-    <ProjectReference Include="..\Modules.Doctors.ApiContracts\Modules.Doctors.ApiContracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

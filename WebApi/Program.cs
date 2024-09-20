@@ -1,6 +1,7 @@
 using Serilog;
 using SharedKernal;
 using SharedKernal.Correlation;
+using SharedKernal.Data;
 using SharedKernal.Migrations;
 using SharedKernal.ModuleInstaller;
 
@@ -23,6 +24,8 @@ var app = builder.Build();
 app.UseExceptionHandler(options => { });
 
 app.CheckDatabaseMigration(installRes.RegisteredDatabases.ToArray());
+
+await app.CheckDefaultData();
 
 if (app.Environment.IsDevelopment())
 {

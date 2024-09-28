@@ -3,9 +3,10 @@ using SharedKernal.ResultResponse;
 
 namespace SharedKernal.MediatR
 {
-    public interface IQueryResult { }
+    //not undersstand it 
+    public interface IQueryResult { }// identify types that represent a query result. 
     public interface IQuery<TResponse> : IRequest<Result<TResponse>>, IQueryResult
-         where TResponse : notnull
+         where TResponse : notnull//It's a way to enforce non-nullability for type safety.
     {
     }
     public interface IQuery : IRequest<Result>, IQueryResult

@@ -1,7 +1,7 @@
 ﻿using SharedKernal.ResultResponse;
 
 namespace SharedKernal.Exceptions;
-
+//why not separate them between classes?
 public abstract class NotFoundException : Exception
 {
     public string? ErrorMessage { get; }

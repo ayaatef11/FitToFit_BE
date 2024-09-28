@@ -6,7 +6,7 @@ using SharedKernal.ResultResponse;
 namespace Modules.Doctors.UseCases.Doctor.GetDoctorInfo
 {
     internal sealed record GetDoctorInfoQueryRes(string nameEn, string nameAr, int age);
-    internal sealed record GetDoctorInfoQuery : IQuery<GetDoctorInfoQueryRes>
+    internal sealed record GetDoctorInfoQuery : IQuery<GetDoctorInfoQueryRes>//handles only internal state
     {
         public int Id { get; set; }
     }

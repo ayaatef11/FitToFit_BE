@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modules.Clients.Data;
 
@@ -10,9 +11,11 @@ using Modules.Clients.Data;
 namespace Modules.Clients.Migrations
 {
     [DbContext(typeof(ClientsDbContext))]
-    partial class ClientsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240928105205_Add_doctor_id")]
+    partial class Add_doctor_id
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

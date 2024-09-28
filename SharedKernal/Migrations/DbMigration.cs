@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace SharedKernal.Migrations
 {
     public static class DbMigration
-    {
+    {//for automatic migration
         public static void CheckDatabaseMigration(this WebApplication app, params Type[] dbContextsTypes)
         {
             using (var scope = app.Services.CreateScope())

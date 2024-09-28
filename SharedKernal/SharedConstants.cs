@@ -4,6 +4,7 @@
     {
         public static class Settings
         {
+            // as we used it in many places so if we changes it we change in one place 
             public const string DatabaseConnection = "Database";
         }
         public static class CrossCutting

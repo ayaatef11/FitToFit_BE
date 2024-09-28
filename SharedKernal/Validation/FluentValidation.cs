@@ -6,12 +6,13 @@ using SharedKernal.ModuleInstaller;
 
 namespace SharedKernal.Validation
 {
-    public static class FluentValidation
+    public static class FluentValidation// validate incoming models
     {
         public static void AddAppValidators(this IServiceCollection services)
         {
             services.AddValidatorsFromAssemblies(ModularInstallerLoader.GetModulesAssemblies());
         }
+        //Its purpose is to convert validation errors from the model state into a list of ValidationFailure objects
         public static List<ValidationFailure> ToFluentValidationFailures(this ModelStateDictionary modelState)
         {
             var errors = new List<ValidationFailure>();

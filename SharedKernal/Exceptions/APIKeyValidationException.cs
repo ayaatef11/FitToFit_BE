@@ -1,8 +1,6 @@
 ﻿namespace SharedKernal.Exceptions;
 
-public sealed class APIKeyValidationException : Exception
+public sealed class APIKeyValidationException(string? message ) : Exception(message ?? "there is no data found")
 {
-    public APIKeyValidationException(string message = null) : base(message ?? "there is no data found")
-    {
-    }
+
 }

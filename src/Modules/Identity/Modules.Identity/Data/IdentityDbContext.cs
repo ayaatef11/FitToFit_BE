@@ -10,6 +10,7 @@ using SharedKernal.UnitOfWork;
 
 namespace Modules.Identity.Data
 {
+    //how they are of the same name the child and the parent?
     internal sealed class IdentityDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string, IdentityUserClaim<string>, ApplicationUserRole, IdentityUserLogin<string>,
          IdentityRoleClaim<string>,
          IdentityUserToken<string>>

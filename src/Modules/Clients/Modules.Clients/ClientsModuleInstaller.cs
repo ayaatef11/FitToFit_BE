@@ -14,6 +14,7 @@ namespace Modules.Clients
 {
     internal class ClientsModuleInstaller : IModuleInstaller
     {
+        //return the current assemply 
         public Assembly InstallerAssemply => Assembly.GetExecutingAssembly();
 
         public Type RegisteredDbContextType => typeof(ClientsDbContext);

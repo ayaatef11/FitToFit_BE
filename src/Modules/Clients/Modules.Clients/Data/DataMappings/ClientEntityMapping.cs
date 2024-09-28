@@ -8,7 +8,7 @@ namespace Modules.Clients.Data.DataMappings
     {
         public void Configure(EntityTypeBuilder<ClientEntity> builder)
         {
-            builder.ToTable("Users", ModuleConstants.Data.Schema);
+            builder.ToTable("Users", ModuleConstants.Data.Schema);//define the schema to create the table 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.NameAr).HasMaxLength(50).IsRequired();

@@ -1,8 +1,5 @@
 ﻿namespace SharedKernal.Exceptions;
 
-public class ForbiddenAccessException : Exception
+public class ForbiddenAccessException(string message) : Exception(message ?? "entity has no access to this resource")
 {
-    public ForbiddenAccessException(string message) : base(message ?? "entity has no access to this resource")
-    {
-    }
 }

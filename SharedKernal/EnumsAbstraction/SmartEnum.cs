@@ -2,6 +2,7 @@
 
 namespace SharedKernal.EnumsAbstraction
 {
+    // Smart Enum can provide a Parse method used to map a string value to an enum value
     public abstract record SmartEnum<TEnum, TKey>(TKey Key)
         where TEnum : SmartEnum<TEnum, TKey>
         where TKey : IEquatable<TKey>, IComparable<TKey>
@@ -9,7 +10,8 @@ namespace SharedKernal.EnumsAbstraction
         public static Dictionary<TKey, TEnum> GetAll()
         {
             var enumType = typeof(TEnum);
-            var fieldTypes = enumType.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            var fieldTypes = enumType.GetFields(BindingFlags.Public | BindingFlags.Static 
+                | BindingFlags.FlattenHierarchy)
                 .Where(fieldInfo => enumType.IsAssignableFrom(fieldInfo.FieldType))
                 .Select(fieldInfo => (TEnum)fieldInfo.GetValue(default)!);
 
@@ -38,9 +40,6 @@ namespace SharedKernal.EnumsAbstraction
         public bool IsValid()
             => GetByKey(Key) != null;
 
-        public override string ToString()
-        {
-            return Key.ToString();
-        }
+        public override string ToString() => Key.ToString();
     }
 }

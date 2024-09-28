@@ -7,7 +7,8 @@ using SharedKernal.ResultResponse;
 
 namespace SharedKernal.Exceptions.CrossCutting
 {
-    public class AppExceptionHandler(ILogger<AppExceptionHandler> logger)
+    //handle those defined exceptions 
+    public class AppExceptionHandler(ILogger<AppExceptionHandler> logger)//handles all the exceptions expected 
     : IExceptionHandler
     {
         public async ValueTask<bool> TryHandleAsync(HttpContext context, Exception exception, CancellationToken cancellationToken)

@@ -5,7 +5,7 @@ namespace SharedKernal.BuildingBlocks
 {
     public abstract class Entity<TEntity, TId> : IEntity<TId> where TEntity : Entity<TEntity, TId>
     {
-        public TId Id { get; set; }
+        public required TId Id { get; set; }//place holder for any id type 
 
         #region Equals Implementation
 

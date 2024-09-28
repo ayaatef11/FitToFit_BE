@@ -11,7 +11,7 @@ using SharedKernal.UnitOfWork;
 using System.Reflection;
 
 namespace Modules.Doctors
-{
+{//register services
     internal class DoctorsModulesInstaller : IModuleInstaller
     {
         public Assembly InstallerAssemply => Assembly.GetExecutingAssembly();

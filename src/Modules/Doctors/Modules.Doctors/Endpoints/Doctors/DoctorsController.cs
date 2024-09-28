@@ -7,6 +7,7 @@ namespace Modules.Doctors.Endpoints.Doctors
 {
     [Route("api/[controller]")]
     [ApiController]
+    //in the controller we only send the query 
     public sealed class DoctorsController(ISender sender) : ControllerBase
     {
         [HttpGet("{id:int}/info")]

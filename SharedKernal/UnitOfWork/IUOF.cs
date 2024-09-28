@@ -4,6 +4,7 @@ using System.Data.Common;
 
 namespace SharedKernal.UnitOfWork
 {
+    //Transaction Management
     public interface IUOF
     {
         DbConnection Connection { get; }

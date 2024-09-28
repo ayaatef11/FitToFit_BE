@@ -9,37 +9,25 @@ using System.Data.Common;
 
 namespace SharedKernal.UnitOfWork
 {
-    public sealed class UOF : IUOF
+    public sealed class UOF(
+        ILogger<UOF> logger,IDbConnectionFacory connectionFactory,ICancelationTokenFactory cancellationTokenFactory,
+        IMediator mediator) : IUOF
     {
-        private readonly ILogger<UOF> logger;
-        public DbConnection Connection { get; set; }
-
-        public UOF(
-            ILogger<UOF> logger,
-            IDbConnectionFacory connectionFactory,
-            ICancelationTokenFactory cancellationTokenFactory,
-            IMediator mediator)
-        {
-            this.logger = logger;
-            Connection = connectionFactory?.CreateConnection();
-            _cancellationToken = cancellationTokenFactory.GetCancellationToken();
-            _mediator = mediator;
-            _transaction = null;
-            _dbTransactionIsolationLevel = IsolationLevel.ReadCommitted;
-        }
+        private readonly ILogger<UOF> logger = logger;
+        public DbConnection Connection { get; set; } = connectionFactory?.CreateConnection();
 
         #region Private Variables
 
-        private IsolationLevel _dbTransactionIsolationLevel;
+        private IsolationLevel _dbTransactionIsolationLevel = IsolationLevel.ReadCommitted;
         private bool _dbConnectionOpenedLocally;
-        private DbTransaction _transaction;
-        private readonly object _lockObject = new();
+        private DbTransaction _transaction = null;
+        private readonly object _lockObject = new();//for multiple users accessing at the same time 
         private int _dbTransactionNestLevel = -1;
-        private readonly HashSet<DbContext> _dbContexts = [];
-        private readonly CancellationToken _cancellationToken;
-        private readonly IMediator _mediator;
+        private readonly HashSet<DbContext> _dbContexts = [];//logical partitioning of the databases 
+        private readonly CancellationToken _cancellationToken = cancellationTokenFactory.GetCancellationToken();
+        private readonly IMediator _mediator = mediator;
         private const int MaxRecursionDepth = 10; //Don't Change this number before consulting with the team leader
-
+        // when dealing with hierarchical or deeply related entities, where one entity references another
         #endregion
 
         #region IUnitOfWork Implementation
@@ -55,7 +43,7 @@ namespace SharedKernal.UnitOfWork
         }
         public void Begin()
         {
-            Begin(IsolationLevel.ReadCommitted);
+            Begin(IsolationLevel.ReadCommitted);//not _dbTransactionIsolationLevel because it may be changed using the next begin function 
         }
 
         public void Begin(IsolationLevel isolationLevel)
